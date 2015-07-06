@@ -1,7 +1,6 @@
-import sbt._
-import Keys._
-import sbtassembly.AssemblyPlugin.autoImport._
 import Common._
+import sbt.Keys._
+import sbt._
 
 lazy val commonSettings = Seq(
   version := "0.1",
@@ -9,9 +8,11 @@ lazy val commonSettings = Seq(
   scalaVersion := commonScalaVersion
 )
 
-	lazy val app =(project in file("app")).
+lazy val app =(project in file("app")).
 	settings(commonSettings: _*).
 	settings(
 	    scalacOptions := commonScalacOptions,
-		libraryDependencies ++= commonLibraries)
-	
+		libraryDependencies ++= commonLibraries ++ reactiveLibraries)
+
+
+libraryDependencies ++= commonLibraries ++ reactiveLibraries

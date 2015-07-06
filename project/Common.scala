@@ -8,9 +8,9 @@ object Common {
 	autoScalaLibrary := false
 
 	lazy val akkaVersion = "2.3.11"
-	lazy val sprayVersion = "1.3.3"
+	lazy val sprayVersion = "1.3.2"
 
-	/**
+	/**s
 	 * Scala version
 	 **/
 	def commonScalaVersion = "2.11.7"
@@ -54,9 +54,10 @@ object Common {
 	)*/
 
 	def functionalProgrammingLibraries = Seq(
-		"org.scalaz" % "scalaz-typelevel_2.9.2" % "7.0.0-M2"
+    "org.scalaz"          %%  "scalaz-core"   % "7.1.0"
 
-	)
+
+  )
 
 	def akkaLibraries = Seq(
 	  	"com.typesafe.akka" 		%% "akka-actor" 			% akkaVersion ,
@@ -67,17 +68,11 @@ object Common {
   	)
 
   	def sprayLibraries = Seq(
-	    "io.spray"           		% 	"spray-can"    		% sprayVersion ,
-	    "io.spray"           		% 	"spray-routing"    	% sprayVersion ,
-	    "io.spray"           		% 	"spray-client"    	% sprayVersion ,
-	    "io.spray"           		% 	"spray-http"    	% sprayVersion ,
-	    "io.spray"           		% 	"spray-httpx"  		% sprayVersion ,
-     	"io.spray"           		%   "spray-caching"     % sprayVersion ,
-      	"io.spray" 			    	%   "spray-util" 		% sprayVersion ,
-      	"io.spray" 			    	%   "spray-io" 		  	% sprayVersion ,
-		"io.spray" 			      	%% 	"spray-json" 	  	% "1.2.5" ,
-		"com.chuusai"		      	%% 	"shapeless" 	  	% "1.2.4" 
-  )
+      "io.spray"            %%  "spray-can"     % sprayVersion withSources() withJavadoc(),
+      "io.spray"            %%  "spray-routing" % sprayVersion withSources() withJavadoc(),
+      "io.spray"            %%  "spray-json"    % "1.3.1",
+      "org.specs2"          %%  "specs2-core"   % "2.3.11" % "test"
+    )
 
   	def testingLibraries = Seq(
 		"junit" 			 		%	"junit"				%	"4.10"		% "test",
